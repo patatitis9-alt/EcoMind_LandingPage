@@ -207,7 +207,7 @@ html, body {
 
 /* ======= BENEFICIOS ======= */
 .benefits {
-  padding: clamp(40px, 8vw, 80px) clamp(16px, 5vw, 40px);
+  padding: 60px 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
@@ -219,6 +219,7 @@ html, body {
   line-height: 1.2;
   margin: 8px 0 48px;
   font-weight: 800;
+  text-align: left;
 }
 
 .benefits__header .brand-word {
@@ -330,6 +331,53 @@ html, body {
   margin: 0;
 }
 
+/* ======= FOOTER ======= */
+.footer{
+  /* full-bleed sin bordes laterales */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  background: #eeeeee;
+  padding: 14px 0;                 /* barra delgadita */
+  margin-top: clamp(24px, 6vw, 64px);
+}
+
+.footer__inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer__links{
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer__links a{
+  text-decoration: none;
+  color: #757575;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  transition: color .2s ease;
+}
+
+.footer__links a:hover{
+  color: #256b36; /* verde oscuro */
+}
+
+/* opcional: meta inferior más pequeña */
+.footer__meta{
+  margin-top: 6px;
+  font-size: 11px;
+  color: #9aa0a6;
+}
+
+
 /* Responsive */
 @media (max-width: 920px){
   .about__grid{ grid-template-columns: 1fr 1fr; }
@@ -337,6 +385,4 @@ html, body {
 @media (max-width: 560px){
   .about__grid{ grid-template-columns: 1fr; }
 }
-
-
 
