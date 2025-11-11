@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* HEADER FIJO */
+header {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 40px;
+}
+
+/* Agrupa menú y botón */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  gap: 30px;
+}
+/* COLOR PRINCIPAL */
+:root {
+  --verde: #69A44E;
+}
+
+/* LOGO */
+.logo {
+  color: var(--verde);
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.logo img {
+  display: block;
+  height: 60px;
+  width: auto;
+  margin-top: -15px;
+}
+/* MENÚ */
+.menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  position:relative;
+  top: 2px;
+}
+
+
+.menu li{
+  padding: 0 10px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--verde);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #3a8436;
+}
+
+/* BOTÓN */
+.btn-unete {
+  display: inline-flex;
+  margin-left: 30px;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--verde);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn-unete:hover {
+  background-color: #3a8436;
+  transform: translateY(-2px);
+}
+
+.arrow {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(-45deg);
+  transition: transform 0.3s, margin-left 0.3s;
+}
+
+.btn-unete:hover .arrow {
+  transform: rotate(-45deg) translate(3px, 3px);
+  margin-left: 4px;
+}
+
+main {
+  margin-top: 90px;
+  padding: 20px 40px;
+}
+
+section {
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.6;
+  color: #333;
+}
+
+
+
+
+
+
