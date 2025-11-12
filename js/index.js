@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const btnExploraRetos = document.querySelector('.btn-primario');
   const btnRegresar = document.getElementById('btnRegresar');
 
-  // --- FUNCIÓN PRINCIPAL DE NAVEGACIÓN ---
+  // ---FUNCIÓN PRINCIPAL DE NAVEGACIÓN---
   function showPage(pageIdToShow) {
     allPages.forEach((page) => {
       page.classList.remove('active');
