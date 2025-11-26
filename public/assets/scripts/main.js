@@ -7,13 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const communityPage = document.getElementById('comunidad-page');
     const parentsGuidePage = document.getElementById('parents-guide-page');
     const faqPage = document.getElementById('faq-page');
+    const signinPage = document.getElementById('signin-page');
     
     // Referencias al Header y Footer
     const header = document.querySelector('header');
     const footer = document.querySelector('footer');
 
     // Array con todas las "páginas" para ocultarlas fácilmente
-    const allPages = [mainPage, signupPage, communityPage, parentsGuidePage, faqPage];
+   const allPages = [mainPage, signupPage, signinPage, communityPage, parentsGuidePage, faqPage];
 
     // --- 2. FUNCIONES PARA MOSTRAR PÁGINAS ---
 
@@ -46,6 +47,18 @@ document.addEventListener('DOMContentLoaded', function() {
         window.scrollTo(0, 0);
         sessionStorage.setItem('ecomind_page', 'signup');
         history.pushState({ page: 'signup' }, 'Únete a EcoMind');
+    }
+
+    // Mostrar Sign In (nueva)
+    function showSignin() {
+        hideAllPages();
+        if (signinPage) signinPage.style.display = 'block';
+        // Ocultar header y footer SÓLO en la página de sign in
+        if (header) header.style.display = 'none';
+        if (footer) footer.style.display = 'none';
+        window.scrollTo(0, 0);
+        sessionStorage.setItem('ecomind_page', 'signin');
+        history.pushState({ page: 'signin' }, 'Inicia sesión en EcoMind');
     }
 
     // Mostrar Comunidad (la nueva)
@@ -93,7 +106,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (savedPage === 'signup') {
         showSignup();
-    } else if (savedPage === 'community') {
+    } else if (savedPage === 'signin') {
+        showSignin();}
+    else if (savedPage === 'community') {
         showCommunity();
     } else if (savedPage === 'parents-guide') {
         showParentsGuide();
@@ -171,7 +186,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 return;
             }
-            
+
+            // 4.b Navegación entre Sign Up y Sign In
+            if (this.classList.contains('link-signin')) {
+                // desde "Have an account? Sign In" (en signup)
+                e.preventDefault();
+                showSignin();
+                return;
+            }
+
+            if (this.classList.contains('link-signup')) {
+                // desde "Don't have an account? Sign up" (en signin)
+                e.preventDefault();
+                showSignup();
+                return;
+            }
+                        
             // 6. Enlaces de Footer o placeholders
             if (href === '#') {
                 e.preventDefault();
@@ -220,14 +250,6 @@ document.addEventListener('DOMContentLoaded', function() {
         btnApple.addEventListener('click', function(e) {
             e.preventDefault();
             alert('Funcionalidad de Sign in with Apple en desarrollo');
-        });
-    }
-    
-    const linkSignIn = document.querySelector('.link-signin');
-    if (linkSignIn) {
-        linkSignIn.addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Funcionalidad de Sign In en desarrollo');
         });
     }
 
@@ -280,7 +302,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (state === 'signup') {
             showSignup();
-        } else if (state === 'community') {
+        } else if (state === 'signin') {
+            showSignin();
+        }   else if (state === 'community') {
             showCommunity();
         } else if (state === 'parents-guide') {
             showParentsGuide();

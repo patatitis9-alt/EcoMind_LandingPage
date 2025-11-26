@@ -422,16 +422,21 @@ html, body {
 }
 
 .logo-large {
+    width: 100%;
     display: flex;
+    justify-content: center;  /* centra horizontalmente el logo */
     align-items: center;
-    gap: 1rem;
-    margin-top: -15rem;     
-    margin-bottom: 2rem;   
+    margin-top: -5rem;            /* quita el salto agresivo hacia arriba */
+    margin-bottom: 2rem;
 }
 
 .logo-img {
-    width: 700px;
-    height: 250px;
+    width: 100%;        /* ocupa el ancho disponible del contenedor */
+    max-width: 500px;   /* tamaño máximo del logo */
+    height: auto;
+    object-fit: contain;
+    display: block;
+    /* nada de margin-left ni justify-content aquí */
 }
 
 .tagline {
@@ -442,23 +447,21 @@ html, body {
     max-width: 800px;
     text-align: center;
     width: 100%;
-    margin: -0.5rem auto 0;
-    transform: translateX(-80px); 
     font-family: 'Poppins', sans-serif;
 }
 
 .signup-right {
-    flex: 1;
-    padding: 4rem 3rem;
+    flex: 0 0 500px;
+    padding: 4rem 6rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     background: white;
 }
 
-#signupForm {
+#signupForm,
+#signinForm {
     width: 100%;
-    max-width: 450px;
 }
 
 .form-group {
@@ -1050,8 +1053,12 @@ html, body {
     }
     
     .logo-img {
-        width: 400px;
-        height: 150px;
+        width:100%;
+        max-width: 500px;
+        margin-left: 0 rem;
+        height: auto;
+        object-fit: contain;
+        display: block;
     }
     
     .social-buttons {
