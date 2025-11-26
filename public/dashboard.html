@@ -58,10 +58,441 @@
         </div>
 
         <!-- PERFIL -->
-        <div id="page-perfil" class="dash-page">
-          <h1 class="dash-title">Perfil</h1>
-          <p class="dash-subtitle">Información básica del usuario.</p>
+        <div id="page-perfil" class="dash-page active">
+          <div class="perfil-container">
+            <!-- Cabecera del perfil -->
+            <div class="perfil-header">
+              <img src="assets/images/perfil/carlos.png" alt="Marcos" class="perfil-avatar-large">
+              <div class="perfil-info">
+                <h2 class="perfil-name">Marcos</h2>
+                <p class="perfil-username">MarquitosElReciclador777</p>
+              </div>
+              <div class="perfil-stats">
+                <div class="perfil-stat-item">
+                  <h3 class="stat-number">15000</h3>
+                  <p class="stat-label">Puntos Totales</p>
+                </div>
+                <div class="perfil-stat-item">
+                  <h3 class="stat-number">28</h3>
+                  <p class="stat-label">Amigos</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="perfil-actions">
+              <button class="btn-perfil-secondary">Editar Perfil</button>
+              <button class="btn-perfil-secondary">Compartir Perfil</button>
+            </div>
+
+            <!-- Pestañas -->
+            <div class="perfil-tabs">
+              <button class="perfil-tab active" data-tab="resumen">Resumen</button>
+              <button class="perfil-tab" data-tab="familia">Familia</button>
+              <button class="perfil-tab" data-tab="progreso">Ver Progreso</button>
+              <button class="perfil-tab" data-tab="favoritos">Favoritos</button>
+            </div>
+
+            <!-- Contenido de las pestañas -->
+            <div class="perfil-content">
+              <!-- Pestaña Resumen -->
+              <div class="perfil-tab-content active" id="tab-resumen">
+                <div class="perfil-grid">
+                  <!-- Columna Izquierda -->
+                  <div class="perfil-col-left">
+                    <!-- Mi Compromiso -->
+                    <div class="perfil-card">
+                      <div class="perfil-card-header">
+                        <h3>Mi compromiso</h3>
+                        <button class="btn-editar" id="btn-editar-compromiso">Editar</button>
+                      </div>
+                      <div class="perfil-card-body">
+                        <p class="compromiso-text" id="compromiso-texto">Promover hábitos sostenibles en mi hogar y escuela, compartiendo conocimientos sobre reciclaje y conservación del medio ambiente</p>
+                        <p class="compromiso-fecha">Establecido hace 12 días</p>
+                      </div>
+                    </div>
+
+                    <!-- Medallas y Logros -->
+                    <div class="perfil-card">
+                      <div class="perfil-card-header">
+                        <h3>Medallas y Logros</h3>
+                        <a href="#" class="ver-todos">Ver todos(23)</a>
+                      </div>
+                      <div class="perfil-card-body">
+                        <div class="medallas-grid">
+                          <div class="medalla-item">
+                            <img src="assets/images/perfil/medallas.png" alt="Medalla" class="medalla-img">
+                            <p class="medalla-titulo">Maestro del reciclaje</p>
+                            <p class="medalla-fecha">Hace 2 días</p>
+                          </div>
+                          <div class="medalla-item">
+                            <img src="assets/images/perfil/medallas.png" alt="Medalla" class="medalla-img">
+                            <p class="medalla-titulo">Guardián del Agua</p>
+                            <p class="medalla-fecha">Hace 4 días</p>
+                          </div>
+                          <div class="medalla-item">
+                            <img src="assets/images/perfil/medallas.png" alt="Medalla" class="medalla-img">
+                            <p class="medalla-titulo">Agricultor Pro</p>
+                            <p class="medalla-fecha">Hace 1 día</p>
+                          </div>
+                          <div class="medalla-item">
+                            <img src="assets/images/perfil/medallas.png" alt="Medalla" class="medalla-img">
+                            <p class="medalla-titulo">Sembrador</p>
+                            <p class="medalla-fecha">Hace 3 días</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Columna Derecha -->
+                  <div class="perfil-col-right">
+                    <!-- Racha Actual -->
+                    <div class="perfil-card racha-card">
+                      <h3>Racha Actual</h3>
+                      <div class="racha-content">
+                        <img src="assets/images/plant.png" alt="Planta" class="racha-icon">
+                        <h2 class="racha-number">16</h2>
+                      </div>
+                      <p class="racha-label">días consecutivos</p>
+                      <p class="racha-record">Tu mejor: 20 días</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pestaña Familia -->
+              <div class="perfil-tab-content" id="tab-familia">
+                <!-- Banner de Familia -->
+                <div class="familia-banner">
+                  <div class="familia-banner-content">
+                    <h2>Familia Gonzáles</h2>
+                    <p>Juntos cuidamos el planeta y promovemos hábitos sustentables</p>
+                    <div class="familia-banner-stats">
+                      <span>Creada hace 3 meses</span>
+                      <span>•</span>
+                      <span>4 miembros</span>
+                    </div>
+                  </div>
+                  <button class="btn-editar-familia">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                      <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Título Miembros -->
+                <h3 class="familia-section-title">Miembros de la Familia (4)</h3>
+
+                <!-- Grid de Miembros -->
+                <div class="familia-members-grid">
+                  <!-- Miembro 1: Juan -->
+                  <div class="familia-member-card">
+                    <img src="assets/images/perfil/padre.png" alt="Juan" class="familia-member-avatar">
+                    <h4 class="familia-member-name">Juan</h4>
+                    <span class="familia-member-badge padre">Padre</span>
+                    <p class="familia-member-contribucion">8/10 actividades completadas</p>
+                    <div class="familia-member-progress">
+                      <div class="progress-bar-small">
+                        <div class="progress-fill-small" style="width: 75%;"></div>
+                      </div>
+                    </div>
+                    <button class="btn-ver-perfil" data-member="juan">Ver perfil</button>
+                  </div>
+
+                  <!-- Miembro 2: Camila -->
+                  <div class="familia-member-card">
+                    <img src="assets/images/perfil/madre.png" alt="Camila" class="familia-member-avatar">
+                    <h4 class="familia-member-name">Camila</h4>
+                    <span class="familia-member-badge madre">Madre</span>
+                    <p class="familia-member-contribucion">9/10 actividades completadas</p>
+                    <div class="familia-member-progress">
+                      <div class="progress-bar-small">
+                        <div class="progress-fill-small" style="width: 85%;"></div>
+                      </div>
+                    </div>
+                    <button class="btn-ver-perfil" data-member="camila">Ver perfil</button>
+                  </div>
+
+                  <!-- Miembro 3: Marcos -->
+                  <div class="familia-member-card">
+                    <img src="assets/images/perfil/carlos.png" alt="Marcos" class="familia-member-avatar">
+                    <h4 class="familia-member-name">Marcos</h4>
+                    <span class="familia-member-badge hijo">Hijo</span>
+                    <p class="familia-member-contribucion">8/10 actividades completadas</p>
+                    <div class="familia-member-progress">
+                      <div class="progress-bar-small">
+                        <div class="progress-fill-small" style="width: 70%;"></div>
+                      </div>
+                    </div>
+                    <button class="btn-ver-perfil" data-member="marcos">Ver perfil</button>
+                  </div>
+
+                  <!-- Miembro 4: Pepe -->
+                  <div class="familia-member-card">
+                    <img src="assets/images/perfil/pepe.png" alt="Pepe" class="familia-member-avatar">
+                    <h4 class="familia-member-name">Pepe</h4>
+                    <span class="familia-member-badge hijo">Hijo</span>
+                    <p class="familia-member-contribucion">6/10 actividades completadas</p>
+                    <div class="familia-member-progress">
+                      <div class="progress-bar-small">
+                        <div class="progress-fill-small" style="width: 60%;"></div>
+                      </div>
+                    </div>
+                    <button class="btn-ver-perfil" data-member="pepe">Ver perfil</button>
+                  </div>
+
+                  <!-- Agregar Familiar -->
+                  <div class="familia-member-card agregar-card">
+                    <div class="agregar-icon">
+                      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </div>
+                    <h4 class="agregar-titulo">Agregar Familiar</h4>
+                    <p class="agregar-subtitulo">Invita a más personas</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pestaña Ver Progreso -->
+              <div class="perfil-tab-content" id="tab-progreso">
+                <div class="progreso-grid">
+                  <!-- Columna Pendientes -->
+                  <div class="progreso-column">
+                    <button class="progreso-tab-btn active">Pendientes</button>
+                    <div class="retos-list">
+                      <!-- Reto 1 -->
+                      <div class="reto-card">
+                        <h4 class="reto-titulo">Reciclar 5 botellas de plástico</h4>
+                        <div class="reto-progress-wrapper">
+                          <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%;"></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Reto 2 -->
+                      <div class="reto-card">
+                        <h4 class="reto-titulo">Lectura de cuidado de energía 1</h4>
+                        <div class="reto-progress-wrapper">
+                          <div class="progress-bar">
+                            <div class="progress-fill" style="width: 25%;"></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Reto 3 -->
+                      <div class="reto-card">
+                        <h4 class="reto-titulo">Actividad familiar 1</h4>
+                        <div class="reto-progress-wrapper">
+                          <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn-ver-mas">Ver más</button>
+                  </div>
+
+                  <!-- Columna Completadas -->
+                  <div class="progreso-column">
+                    <button class="progreso-tab-btn active">Completadas</button>
+                    <div class="retos-list">
+                      <!-- Reto Completado 1 -->
+                      <div class="reto-card completado">
+                        <h4 class="reto-titulo">Reto diario 1</h4>
+                        <div class="reto-progress-wrapper">
+                          <div class="progress-bar">
+                            <div class="progress-fill completado" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Reto Completado 2 -->
+                      <div class="reto-card completado">
+                        <h4 class="reto-titulo">¡Empecemos a germinar!</h4>
+                        <div class="reto-progress-wrapper">
+                          <div class="progress-bar">
+                            <div class="progress-fill completado" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Reto Completado 3 -->
+                      <div class="reto-card completado">
+                        <h4 class="reto-titulo">¡Hora de ahorrar energía!</h4>
+                        <div class="reto-progress-wrapper">
+                          <div class="progress-bar">
+                            <div class="progress-fill completado" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn-ver-mas">Ver más</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pestaña Favoritos -->
+              <div class="perfil-tab-content" id="tab-favoritos">
+                <!-- Tags de Filtro -->
+                <div class="favoritos-tags">
+                  <span class="tag-filter active">Todos</span>
+                  <span class="tag-filter">Infografías</span>
+                  <span class="tag-filter">Lecturas</span>
+                  <span class="tag-filter">Videos</span>
+                </div>
+
+                <!-- Galería de Contenido -->
+                <div class="favoritos-gallery">
+                      <div class="favorito-card">
+                        <img src="assets/images/perfil/infografia1.png" alt="Infografía" class="favorito-thumbnail">
+                      </div>
+                      <div class="favorito-card">
+                        <img src="assets/images/perfil/infografia2.png" alt="Infografía" class="favorito-thumbnail">
+                      </div>
+                      <div class="favorito-card">
+                        <img src="assets/images/perfil/infografia3.png" alt="Infografía" class="favorito-thumbnail">
+                      </div>
+                      <div class="favorito-card">
+                        <img src="assets/images/perfil/infografia4.png" alt="Infografía" class="favorito-thumbnail">
+                      </div>
+                      <div class="favorito-card video-card">
+                        <img src="assets/images/perfil/video1.png" alt="Video" class="favorito-thumbnail">
+                        <div class="video-overlay">
+                          <svg class="play-icon" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="24" fill="white" opacity="0.9"/>
+                            <path d="M20 16L32 24L20 32V16Z" fill="#69A44E"/>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="favorito-card video-card">
+                        <img src="assets/images/perfil/video2.png" alt="Video" class="favorito-thumbnail">
+                        <div class="video-overlay">
+                          <svg class="play-icon" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="24" fill="white" opacity="0.9"/>
+                            <path d="M20 16L32 24L20 32V16Z" fill="#69A44E"/>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="favorito-card">
+                        <img src="assets/images/perfil/libro1.png" alt="Libro" class="favorito-thumbnail">
+                      </div>
+                      <div class="favorito-card">
+                        <img src="assets/images/perfil/infografia6.png" alt="Infografía" class="favorito-thumbnail">
+                      </div>
+                      <div class="favorito-card">
+                        <img src="assets/images/perfil/infografia5.png" alt="Infografía" class="favorito-thumbnail">
+                      </div>
+                    </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- PÁGINA DE PERFIL DE MIEMBRO (PEPE) -->
+        <div id="page-miembro-perfil" class="dash-page">
+          <!-- Breadcrumb -->
+          <div class="breadcrumb">
+            <span class="breadcrumb-item" id="breadcrumb-familia">Familia</span>
+            <span class="breadcrumb-separator">></span>
+            <span class="breadcrumb-item active" id="breadcrumb-nombre">Pepe</span>
+          </div>
+
+          <!-- Cabecera del perfil -->
+          <div class="miembro-perfil-header">
+            <img src="assets/images/perfil/pepe.png" alt="Pepe" class="miembro-perfil-avatar" id="miembro-avatar">
+            <div class="miembro-perfil-info">
+              <h2 class="miembro-perfil-nombre" id="miembro-nombre">Pepe</h2>
+              <p class="miembro-perfil-username" id="miembro-username">xXPepePr0Xx</p>
+            </div>
+            <div class="miembro-perfil-stats">
+              <div class="miembro-stat-item">
+                <h3 class="stat-number" id="miembro-puntos">15000</h3>
+                <p class="stat-label">Puntos Totales</p>
+              </div>
+              <div class="miembro-stat-item">
+                <h3 class="stat-number" id="miembro-amigos">28</h3>
+                <p class="stat-label">Amigos</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botones de acción -->
+          <div class="miembro-perfil-actions">
+            <button class="btn-miembro-secondary">Compartir Perfil</button>
+            <button class="btn-miembro-danger">Eliminar</button>
+          </div>
+
+          <!-- Contenido del perfil -->
+          <div class="miembro-perfil-content">
+            <div class="perfil-grid">
+              <!-- Columna Izquierda -->
+              <div class="perfil-col-left">
+                <!-- Mi Compromiso -->
+                <div class="perfil-card">
+                  <div class="perfil-card-header">
+                    <h3>Mi compromiso</h3>
+                  </div>
+                  <div class="perfil-card-body">
+                    <p class="compromiso-text">Promover hábitos sostenibles en mi hogar y escuela, compartiendo conocimientos sobre reciclaje y conservación del medio ambiente con mi familia.</p>
+                    <p class="compromiso-fecha">Establecido hace 10 días</p>
+                  </div>
+                </div>
+
+                <!-- Medallas y Logros -->
+                <div class="perfil-card">
+                  <div class="perfil-card-header">
+                    <h3>Medallas y Logros</h3>
+                    <a href="#" class="ver-todos">Ver todos(23)</a>
+                  </div>
+                  <div class="perfil-card-body">
+                    <div class="medallas-grid">
+                      <div class="medalla-item">
+                        <img src="assets/images/perfil/medallas.png" alt="Medalla" class="medalla-img">
+                        <p class="medalla-titulo">Maestro del reciclaje</p>
+                        <p class="medalla-fecha">Hace 2 días</p>
+                      </div>
+                      <div class="medalla-item">
+                        <img src="assets/images/perfil/medallas.png" alt="Medalla" class="medalla-img">
+                        <p class="medalla-titulo">Guardián del Agua</p>
+                        <p class="medalla-fecha">Hace 4 días</p>
+                      </div>
+                      <div class="medalla-item">
+                        <img src="assets/images/perfil/medallas.png" alt="Medalla" class="medalla-img">
+                        <p class="medalla-titulo">Agricultor Pro</p>
+                        <p class="medalla-fecha">Hace 1 día</p>
+                      </div>
+                      <div class="medalla-item">
+                        <img src="assets/images/perfil/medallas.png" alt="Medalla" class="medalla-img">
+                        <p class="medalla-titulo">Sembrador</p>
+                        <p class="medalla-fecha">Hace 3 días</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Columna Derecha -->
+              <div class="perfil-col-right">
+                <!-- Racha Actual -->
+                <div class="perfil-card racha-card">
+                  <h3>Racha Actual</h3>
+                  <div class="racha-content">
+                    <img src="assets/images/plant.png" alt="Planta" class="racha-icon">
+                    <h2 class="racha-number">13</h2>
+                  </div>
+                  <p class="racha-label">días consecutivos</p>
+                  <p class="racha-record">Tu mejor: 20 días</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
 
         <!-- AJUSTES -->
         <div id="page-ajustes" class="dash-page">
@@ -71,6 +502,30 @@
 
       </section>
     </main>
+  </div>
+  
+ <!-- Modal Editar Compromiso -->
+  <div class="modal-overlay" id="modal-compromiso">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Mi Compromiso</h3>
+        <button class="btn-cancelar" id="modal-close">Cancelar</button>
+      </div>
+      <div class="modal-body">
+        <div class="compromiso-texto-editable">
+          <p class="compromiso-texto-modal" id="compromiso-texto-modal">Promover hábitos sostenibles en mi hogar y escuela, compartiendo conocimientos sobre reciclaje y conservación del medio ambiente</p>
+          <textarea id="textarea-compromiso" class="compromiso-textarea-hidden" maxlength="150" style="display:none;">Promover hábitos sostenibles en mi hogar y escuela, compartiendo conocimientos sobre reciclaje y conservación del medio ambiente</textarea>
+        </div>
+        <p class="agregar-mas">Agregar más...</p>
+        <div class="character-counter">
+          <span id="char-count">112</span>/150
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-modal-primary" id="btn-guardar-compromiso">Guardar Compromiso</button>
+        <button class="btn-modal-secondary" id="btn-eliminar-compromiso">Eliminar compromiso</button>
+      </div>
+    </div>
   </div>
 
   <script src="assets/scripts/dashboard.js"></script>
