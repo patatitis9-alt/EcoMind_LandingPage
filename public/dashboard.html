@@ -164,121 +164,178 @@
 <!-- ACTIVIDAD -->
 <div id="retos-actividad-view" class="actividad-layout" style="display:none;">
 
-  <div class="actividad-header">
-      <button id="btn-volver-retos" class="btn-volver-retos">Volver</button>
-      <h2 class="actividad-titulo-top">ACTIVIDAD</h2>
-  </div>
+  <div class="actividad-wrapper">
+    <!-- PANTALLA 1: DETALLE DE LA ACTIVIDAD -->
+    <div id="actividad-screen-detalle" class="actividad-screen active">
 
-  <div class="actividad-container">
-    
-    <!-- Columna izquierda -->
-    <div class="actividad-info">
-      <h1 class="actividad-titulo">¡Hora de ahorrar energía!</h1>
-
-      <div class="actividad-tags">
-        <span class="tag">energía</span>
-        <span class="tag">+10 años</span>
-        <span class="tag">60 min</span>
-        <span class="tag verde">50 ecoPoints</span>
+      <div class="actividad-header">
+        <button id="btn-volver-retos" class="btn-volver-retos">Volver</button>
       </div>
 
-      <p class="actividad-descripcion">
-        Apagaremos las luces y desconectaremos los aparatos que no usemos,
-        aprendiendo cómo pequeños gestos pueden proteger nuestro planeta.
-      </p>
+      <div class="actividad-container">
+        <!-- Columna izquierda -->
+        <div class="actividad-info">
+          <h1 class="actividad-titulo">¡Hora de ahorrar energía!</h1>
 
-      <img src="assets/images/actividad/actividad_energia.png" class="actividad-img">
+          <div class="actividad-tags">
+            <span class="tag">energía</span>
+            <span class="tag">+10 años</span>
+            <span class="tag">60 min</span>
+            <span class="tag verde">50 ecoPoints</span>
+          </div>
 
-      <button class="btn-iniciar-actividad">Iniciar Actividad</button>
+          <p class="actividad-descripcion">
+            Apagaremos las luces y desconectaremos los aparatos que no usemos,
+            aprendiendo cómo pequeños gestos pueden proteger nuestro planeta.
+          </p>
+
+          <img src="assets/images/actividad/actividad_energia.png" class="actividad-img" alt="Actividad energía">
+
+          <button class="btn-iniciar-actividad" id="btn-iniciar-actividad">
+            Iniciar Actividad
+          </button>
+        </div>
+
+        <!-- Columna derecha: Invitar amigos / Participantes -->
+        <div class="activity-sidebar">
+
+          <!-- TARJETA INVITAR AMIGOS -->
+          <div class="activity-card">
+            <button class="activity-card-header js-activity-toggle is-open">
+              <span class="activity-card-title">INVITAR AMIGOS</span>
+              <span class="activity-chevron">˄</span>
+            </button>
+
+            <div class="activity-card-body">
+              <!-- barra de búsqueda -->
+              <div class="activity-search">
+                <button class="activity-search-menu">
+                  <img src="assets/icons/menu-lines.svg" alt="">
+                </button>
+                <input type="text" placeholder="Buscar" />
+                <button class="activity-search-icon">
+                  <img src="assets/icons/search.svg" alt="">
+                </button>
+              </div>
+
+              <!-- lista de amigos -->
+              <ul class="friends-list">
+                <li class="friend-row">
+                  <img src="assets/images/amigos/cami.png" class="friend-avatar" alt="">
+                  <span class="friend-name">CamiSky</span>
+                  <button class="btn-invitar">Invitar</button>
+                </li>
+                <li class="friend-row">
+                  <img src="assets/images/amigos/mateo.png" class="friend-avatar" alt="">
+                  <span class="friend-name">MateoRun</span>
+                  <button class="btn-invitar">Invitar</button>
+                </li>
+                <li class="friend-row">
+                  <img src="assets/images/amigos/alex.png" class="friend-avatar" alt="">
+                  <span class="friend-name">AlexNova</span>
+                  <button class="btn-invitar">Invitar</button>
+                </li>
+                <li class="friend-row">
+                  <img src="assets/images/amigos/rafa.png" class="friend-avatar" alt="">
+                  <span class="friend-name">RafaLuz</span>
+                  <button class="btn-invitar">Invitar</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- TARJETA PARTICIPANTES -->
+          <div class="activity-card">
+            <button class="activity-card-header js-activity-toggle">
+              <span class="activity-card-title">Participantes</span>
+              <span class="activity-chevron">˅</span>
+            </button>
+
+            <div class="activity-card-body participants-body is-hidden">
+              <ul class="participants-list">
+                <li class="participant-row">
+                  <img src="assets/images/avatar.png" class="friend-avatar" alt="">
+                  <div class="participant-info">
+                    <span class="friend-name">Marcos</span>
+                  </div>
+                  <span class="participant-role">Organizador</span>
+                </li>
+
+                <li class="participant-row">
+                  <img src="assets/images/amigos/cami.png" class="friend-avatar" alt="">
+                  <div class="participant-info">
+                    <span class="friend-name">CamiSky</span>
+                  </div>
+                  <span class="participant-role">Eliminar</span>
+                </li>
+
+                <li class="participant-row participant-pending">
+                  <img src="assets/images/amigos/rafa.png" class="friend-avatar" alt="">
+                  <div class="participant-info">
+                    <span class="friend-name">RafaLuz</span>
+                    <span class="participant-status">Esperando confirmación</span>
+                  </div>
+                  <span class="participant-role">Eliminar</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div> <!-- /.activity-sidebar -->
+      </div> <!-- /.actividad-container -->
+    </div> <!-- /screen detalle -->
+
+    <!-- PANTALLA 2: YAY / TRANSICIÓN -->
+    <div id="actividad-screen-yay" class="actividad-screen">
+      <div class="actividad-yay-inner">
+        <p class="actividad-yay-text">¡Iniciaste una actividad!</p>
+        <img src="assets/images/actividad/terranini_corre.png"
+             alt="Terranini_globilini_corriendo"
+             class="actividad-yay-img">
+      </div>
     </div>
 
-    <!-- Columna derecha: Invitar amigos -->
-        <div class="activity-sidebar">
-        <!-- TARJETA INVITAR AMIGOS -->
-        <div class="activity-card">
-        <button class="activity-card-header js-activity-toggle is-open">
-            <span class="activity-card-title">INVITAR AMIGOS</span>
-            <span class="activity-chevron">˅</span>
-        </button>
-
-        <div class="activity-card-body">
-            <!-- barra de búsqueda -->
-            <div class="activity-search">
-            <button class="activity-search-menu">
-                <img src="assets/icons/menu-lines.svg" alt="">
-            </button>
-            <input type="text" placeholder="Buscar" />
-            <button class="activity-search-icon">
-                <img src="assets/icons/search.svg" alt="">
-            </button>
-            </div>
-
-            <!-- lista de amigos -->
-            <ul class="friends-list">
-            <li class="friend-row">
-                <img src="assets/images/amigos/cami.png" class="friend-avatar" alt="">
-                <span class="friend-name">CamiSky</span>
-                <button class="btn-invitar">Invitar</button>
-            </li>
-            <li class="friend-row">
-                <img src="assets/images/amigos/mateo.png" class="friend-avatar" alt="">
-                <span class="friend-name">MateoRun</span>
-                <button class="btn-invitar">Invitar</button>
-            </li>
-            <li class="friend-row">
-                <img src="assets/images/amigos/alex.png" class="friend-avatar" alt="">
-                <span class="friend-name">AlexNova</span>
-                <button class="btn-invitar">Invitar</button>
-            </li>
-            <li class="friend-row">
-                <img src="assets/images/amigos/rafa.png" class="friend-avatar" alt="">
-                <span class="friend-name">RafaLuz</span>
-                <button class="btn-invitar">Invitar</button>
-            </li>
-            <!-- ...más amigos -->
-            </ul>
+    <!-- PANTALLA 3: INSTRUCCIONES -->
+    <div id="actividad-screen-instrucciones" class="actividad-screen">
+      <div class="actividad-instrucciones-inner">
+        <div class="actividad-header">
+        <button id="btn-volver-retos" class="btn-volver-retos">Volver</button>
         </div>
+        <h1 class="instr-title">Hora de ahorrar energía!</h1>
+
+        <div class="instr-step">
+          <label class="instr-check">
+            <input type="checkbox">
+            <span>Apaga las luces 1 hora</span>
+          </label>
+          <div class="instr-evidencia-box">
+            Adjunte evidencia 📎
+          </div>
         </div>
 
-        <!-- TARJETA PARTICIPANTES -->
-        <div class="activity-card">
-        <button class="activity-card-header js-activity-toggle">
-            <span class="activity-card-title">Participantes</span>
-            <span class="activity-chevron">˅</span>
-        </button>
-
-        <div class="activity-card-body participants-body">
-            <ul class="participants-list">
-            <li class="participant-row">
-                <img src="assets/images/avatar.png" class="friend-avatar" alt="">
-                <div class="participant-info">
-                <span class="friend-name">Marcos</span>
-                </div>
-                <span class="participant-role">Organizador</span>
-            </li>
-
-            <li class="participant-row">
-                <img src="assets/images/amigos/cami.png" class="friend-avatar" alt="">
-                <div class="participant-info">
-                <span class="friend-name">CamiSky</span>
-                </div>
-            </li>
-
-            <li class="participant-row participant-pending">
-                <img src="assets/images/amigos/rafa.png" class="friend-avatar" alt="">
-                <div class="participant-info">
-                <span class="friend-name">RafaLuz</span>
-                <span class="participant-status">Esperando confirmación</span>
-                </div>
-            </li>
-            </ul>
-        </div>
-        </div>
+        <div class="instr-step">
+          <label class="instr-check">
+            <input type="checkbox">
+            <span>Suspende el dispositivo 1 hora</span>
+          </label>
+          <p class="instr-progress-text">Progreso: 30 minutos / 60 minutos</p>
+          <div class="instr-progress-bar">
+            <div class="instr-progress-fill" style="width:50%;"></div>
+          </div>
         </div>
 
-  </div>
+        <img src="assets/images/actividad/terranini_feliz.png"
+             alt="Mundo EcoMind animando"
+             class="instr-mascota-img">
 
+        <button class="instr-completar-btn">Completar</button>
+      </div>
+    </div>
+
+  </div> <!-- /.actividad-wrapper -->
 </div>
+<!-- FIN ACTIVIDAD -->
+
 
 </div>
 

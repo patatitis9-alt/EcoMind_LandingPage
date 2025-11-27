@@ -70,15 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const textoActual = compromisoTextoModal.textContent.trim();
             textareaCompromiso.value = textoActual;
             textareaCompromiso.style.display = 'block';
-            textareaCompromiso.style.width = '100%';
-            textareaCompromiso.style.minHeight = '100px';
-            textareaCompromiso.style.border = 'none';
-            textareaCompromiso.style.background = 'transparent';
-            textareaCompromiso.style.resize = 'none';
-            textareaCompromiso.style.outline = 'none';
-            textareaCompromiso.style.fontFamily = 'Poppins, sans-serif';
-            textareaCompromiso.style.fontSize = '0.95rem';
-            textareaCompromiso.style.lineHeight = '1.5';
             compromisoTextoModal.style.display = 'none';
             textareaCompromiso.focus();
             if (charCount) {
@@ -274,73 +265,146 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Al hacer click en el sidebar "Retos", volver a la vista principal
-    // Esto es útil para que el usuario pueda "salir" de la búsqueda volviendo a clicar en el menú lateral
     if (btnSidebarRetos) {
         btnSidebarRetos.addEventListener('click', () => {
             if (viewRetosMain && viewRetosSearch) {
                 // Ocultar búsqueda
                 viewRetosSearch.style.display = 'none';
                 // Mostrar principal (usamos 'grid' porque así está en el CSS de .retos-layout)
-                viewRetosMain.style.display = 'grid'; 
+                viewRetosMain.style.display = 'grid';
+                actividadView.style.display = 'none';
+                viewRetosMain.style.display = 'grid';
+                if (viewRetosSearch) viewRetosSearch.style.display = 'none';
             }
         });
     }
 
     // ==========================================
-    // 7. MOSTRAR VISTA DE ACTIVIDAD AL HACER CLICK EN UN RETO
+    // 7. VISTA DETALLE DE ACTIVIDAD (retos-actividad-view)
     // ==========================================
+    const actividadView = document.getElementById('retos-actividad-view');
+    const btnVolverRetos = document.getElementById('btn-volver-retos');
 
-    const botonesReto = document.querySelectorAll('.btn-game-img');
-    const viewRetosActividad = document.getElementById('retos-actividad-view');
+    // Usaremos el PRIMER botón de la grilla como ejemplo para abrir la actividad
+    const primerRetoBtn = document.querySelector('.game-grid .btn-game-img');
 
-    botonesReto.forEach(btn => {
-        btn.addEventListener('click', () => {
-            
-            // Ocultar las otras vistas
-            if (viewRetosMain) viewRetosMain.style.display = 'none';
+    if (primerRetoBtn && actividadView && viewRetosMain) {
+        primerRetoBtn.addEventListener('click', () => {
+            // Ocultamos la grilla de retos y la búsqueda
+            viewRetosMain.style.display = 'none';
             if (viewRetosSearch) viewRetosSearch.style.display = 'none';
 
-            // Mostrar la vista de actividad
-            if (viewRetosActividad) viewRetosActividad.style.display = 'block';
-        });
-    });
+            // Mostramos la vista de actividad
+            actividadView.style.display = 'block';
 
-    // BOTÓN “VOLVER” EN LA ACTIVIDAD
-    const btnVolverRetos = document.getElementById('btn-volver-retos');
-    if (btnVolverRetos) {
-        btnVolverRetos.addEventListener('click', () => {
-            // Cierra actividad y muestra la grilla de retos
-            if (viewRetosActividad) viewRetosActividad.style.display = 'none';
-            if (viewRetosMain) viewRetosMain.style.display = 'grid';
+            // Aseguramos que se vea la pantalla de detalle
+            cambiarPantallaActividad('detalle');
         });
     }
 
-        // ==========================================
-    // 7. MENÚ DESPLEGABLE LADO DERECHO (AMIGOS / PARTICIPANTES)
+    if (btnVolverRetos && actividadView && viewRetosMain) {
+        btnVolverRetos.addEventListener('click', () => {
+            // Cerramos actividad y volvemos a los retos
+            actividadView.style.display = 'none';
+            viewRetosMain.style.display = 'grid';
+            if (viewRetosSearch) viewRetosSearch.style.display = 'none';
+        });
+    }
+
     // ==========================================
-    const toggles = document.querySelectorAll('.js-activity-toggle');
+    // 8. PANTALLAS DE LA ACTIVIDAD (detalle → yay → instrucciones)
+    // ==========================================
+    const screenDetalle = document.getElementById('actividad-screen-detalle');
+    const screenYay = document.getElementById('actividad-screen-yay');
+    const screenInstr = document.getElementById('actividad-screen-instrucciones');
+    const btnIniciarActividad = document.getElementById('btn-iniciar-actividad');
 
-    toggles.forEach(btn => {
-        const card = btn.closest('.activity-card');
-        const body = card.querySelector('.activity-card-body');
+    function cambiarPantallaActividad(nombre) {
+        const screens = {
+            detalle: screenDetalle,
+            yay: screenYay,
+            instrucciones: screenInstr
+        };
 
-        // estado inicial: solo los que NO tengan is-open empiezan ocultos
-        if (!btn.classList.contains('is-open')) {
-            body.style.display = 'none';
+        Object.values(screens).forEach(s => {
+            if (s) s.classList.remove('active');
+        });
+
+        if (screens[nombre]) {
+            screens[nombre].classList.add('active');
         }
+    }
 
-        btn.addEventListener('click', () => {
-            const isOpen = btn.classList.toggle('is-open');
-            body.style.display = isOpen ? 'block' : 'none';
+    if (btnIniciarActividad && screenDetalle && screenYay && screenInstr) {
+        btnIniciarActividad.addEventListener('click', () => {
+            // 1) Detalle → YAY
+            cambiarPantallaActividad('yay');
+
+            // 2) Después de un ratito → Instrucciones
+            setTimeout(() => {
+                cambiarPantallaActividad('instrucciones');
+            }, 1200); // milisegundos
+        });
+    }
+
+    // ==========================================
+    // 9. ACORDEÓN INVITAR AMIGOS / PARTICIPANTES
+    // ==========================================
+    const activityToggles = document.querySelectorAll('.js-activity-toggle');
+
+    activityToggles.forEach(header => {
+        header.addEventListener('click', () => {
+            const card = header.closest('.activity-card');
+            const body = card ? card.querySelector('.activity-card-body') : null;
+            const chevron = header.querySelector('.activity-chevron');
+
+            if (!body) return;
+
+            const isHidden = body.classList.toggle('is-hidden');
+            header.classList.toggle('is-open', !isHidden);
+
+            if (chevron) {
+                chevron.textContent = isHidden ? '˅' : '˄';
+            }
         });
     });
-    
-    document.querySelectorAll('.btn-invitar').forEach(btn => {
-    btn.addEventListener('click', () => {
-        btn.classList.add('invited');
-        btn.textContent = "Invitado";
-      });
-  });
+
+    // ==========================================
+    // 10. BOTONES "INVITAR" → SE QUEDAN GRIS
+    // ==========================================
+    const btnsInvitar = document.querySelectorAll('.btn-invitar');
+
+    btnsInvitar.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (btn.classList.contains('btn-invitar-disabled')) {
+                return; // ya está deshabilitado
+            }
+            btn.textContent = 'Invitado';
+            btn.classList.add('btn-invitar-disabled');
+        });
+    });
+
+    // BOTÓN VOLVER EN EL MODO ACTIVIDAD
+    const btnVolverActividad = document.querySelector('.btn-volver-retos');
+
+    if (btnVolverActividad) {
+        btnVolverActividad.addEventListener('click', () => {
+
+            // Apagar pantalla instrucciones
+            const screenInstr = document.getElementById('actividad-screen-instr');
+            const screenYay = document.getElementById('actividad-screen-yay');
+            const screenMain = document.getElementById('retos-actividad-view');
+
+            if (screenInstr) screenInstr.classList.remove('active');
+            if (screenYay) screenYay.classList.remove('active');
+
+            // Regresar a la pantalla principal del reto
+            if (screenMain) screenMain.classList.add('active');
+
+            // Scroll al inicio para evitar quedarnos a mitad
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
 
 
 });
