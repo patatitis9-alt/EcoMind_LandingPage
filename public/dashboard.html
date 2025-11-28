@@ -39,6 +39,188 @@
 
     <!-- Main -->
     <main class="dash-main">
+
+      <!-- RANKING -->
+    <style>
+    /* Scoped minimal styles for ranking */
+    .dash-page#page-ranking.active {
+    display: flex !important;
+    justify-content: center;
+    padding-top: 0.8rem;
+    }
+    #page-ranking .ranking-content-wrapper {
+    width: 100%;
+    max-width: 850px;
+    }
+    #page-ranking { padding: 1.2rem; }
+    #page-ranking .ranking-card {
+      max-width: 640px;
+      margin: 0.8rem 0 2rem 0;
+      background: #fff;
+      padding: 1.2rem;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      font-family: 'Poppins', sans-serif;
+    }
+    #page-ranking .ranking-header { text-align: center; margin-bottom: 0.6rem; }
+    #page-ranking .trophy-icon { font-size: 5.2rem; display: flex; justify-content:center; margin-right: 10.7rem; }
+
+    #page-ranking .top-global-title {
+      display:flex; align-items:center; justify-content:space-between; gap:8px;
+      margin-bottom: 0.8rem; padding-bottom:0.6rem; border-bottom:1px solid #eee;
+    }
+    #page-ranking .top-global-title h2 { margin:0; color:#2f6b2f; font-size:1.3rem; }
+    #page-ranking .arrow-nav {
+      background:none; border:1px solid #e6f3e6; padding:6px 10px; border-radius:8px;
+      cursor:pointer; color:#3a7a28;
+    }
+
+    /* Lista */
+    #page-ranking .ranking-list { list-style: none; margin:0; padding:0; }
+    #page-ranking .ranking-list li {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:10px 12px; border-radius:12px; margin-bottom:8px;
+      background:#fbfbfb; border:1px solid #f0f0f0;
+    }
+    #page-ranking .ranking-item-left { display:flex; align-items:center; gap:10px; }
+    #page-ranking .medal { font-size:1.4rem; min-width:30px; }
+    #page-ranking .score { color:#69A44E; font-weight:700; min-width:60px; text-align:right; }
+    #page-ranking .ranking-list li:nth-child(1),
+    #page-ranking .ranking-list li:nth-child(2),
+    #page-ranking .ranking-list li:nth-child(3) {
+    background: #e6f8e6;  
+    border: 1px solid #b6e5b6;
+}
+    /* Tu puesto */
+    #page-ranking .user-separator { text-align:center; margin-top:14px; font-weight:700; color:#69A44E; }
+    #page-ranking .user-rank { display:flex; justify-content:space-between; padding:10px 12px; margin-top:8px; background:linear-gradient(90deg,#e9f7e9,#f6fff6); border-radius:10px; }
+    /* Responsive */
+    @media (max-width:720px) {
+      #page-ranking .ranking-card{ padding:0.9rem; }
+      #page-ranking .top-global-title h2{ font-size:1.05rem; }
+      #page-ranking .trophy-icon{ font-size:2.6rem; }
+      #page-ranking .ranking-list li{ flex-direction:column; align-items:flex-start; gap:6px; }
+      #page-ranking .score{ align-self:flex-end; }
+    }
+  </style>
+
+<!-- =============== PÁGINA RANKING ================= -->
+<div id="page-ranking" class="dash-page">
+
+  <div class="ranking-content-wrapper">
+
+    <!-- Encabezado del Ranking -->
+    <div class="ranking-header">
+      <div class="trophy-icon">🏆</div>
+    </div>
+
+    <!-- Tarjeta del Ranking -->
+    <div class="ranking-card">
+
+      <!-- Título -->
+      <div class="top-global-title">
+        <button class="arrow-nav">&lt;</button>
+        <h2>Ranking</h2>
+        <button class="arrow-nav">&gt;</button>
+      </div>
+
+      <!-- Lista del Top 10 -->
+      <section id="leaderboard">
+        <ol class="ranking-list">
+
+          <li>
+            <div class="ranking-item-left tomi">
+              <span class="medal">🥇</span>
+              <strong>TomiFlash</strong>
+            </div>
+            <span class="score">9800</span>
+          </li>
+
+          <li>
+            <div class="ranking-item-left">
+              <span class="medal">🥈</span>
+              <strong>LauPop</strong>
+            </div>
+            <span class="score">9200</span>
+          </li>
+
+          <li>
+            <div class="ranking-item-left">
+              <span class="medal">🥉</span>
+              <strong>LunaBrillita</strong>
+            </div>
+            <span class="score">9000</span>
+          </li>
+
+          <li>
+            <div class="ranking-item-left">
+              <strong>4. NatiPlay</strong>
+            </div>
+            <span class="score">8900</span>
+          </li>
+
+          <li>
+            <div class="ranking-item-left">
+              <strong>5. LuliCraft</strong>
+            </div>
+            <span class="score">8850</span>
+          </li>
+
+          <li>
+            <div class="ranking-item-left">
+              <strong>6. MaxiGamer</strong>
+            </div>
+            <span class="score">8050</span>
+          </li>
+
+          <li>
+            <div class="ranking-item-left">
+              <strong>7. MiniAlex</strong>
+            </div>
+            <span class="score">7990</span>
+          </li>
+
+          <li>
+            <div class="ranking-item-left">
+              <strong>8. NicoXD</strong>
+            </div>
+            <span class="score">7520</span>
+          </li>
+
+          <li>
+            <div class="ranking-item-left">
+              <strong>9. TomiPlayz</strong>
+            </div>
+            <span class="score">7210</span>
+          </li>
+
+          <li>
+            <div class="ranking-item-left">
+              <strong>10. SoftStar</strong>
+            </div>
+            <span class="score">7100</span>
+          </li>
+
+        </ol>
+      </section>
+
+      <!-- Separador -->
+      <div class="user-separator">Tu puesto</div>
+
+      <!-- Puesto del usuario -->
+      <p class="user-rank">
+        <strong>220. MarquitosElReciclador777</strong>
+        <span class="score">200</span>
+      </p>
+
+    </div> <!-- ranking-card -->
+
+  </div> <!-- ranking-content-wrapper -->
+
+</div>
+<!-- =============== FIN PÁGINA RANKING =============== -->
+
+
       <section class="dash-pages">
         <!-- RETOS -->
         <div id="page-retos" class="dash-page active">
@@ -654,11 +836,6 @@
             <img src="assets/images/comunidad/eventofamilia.png" alt="Éxito Familia" class="exito-img">
             <button class="btn-continuar-exito">Continuar</button>
           </div>
-        </div>
-        <!-- RANKING -->
-        <div id="page-ranking" class="dash-page">
-          <h1 class="dash-title">Ranking</h1>
-          <p class="dash-subtitle">Mira tu posición entre otras familias.</p>
         </div>
 
         <!-- PERFIL -->
